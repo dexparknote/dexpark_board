@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" tyle="text/css" href="http://localhost:9000/board/css/board.css">
+<link rel="stylesheet" type="text/css" href="http://localhost:9000/board/css/board.css">
 <title>게시판</title>
 </head>
 <body>

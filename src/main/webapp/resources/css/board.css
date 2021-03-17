@@ -10,6 +10,18 @@ a {
 	text-decoration: none;
 }
 
+button {
+	all: unset;
+	background-color: #28A0FF;
+	padding: 5px;
+	border-radius: 5px;
+	color: white;
+}
+
+button:active {
+	opacity: 0.6;
+}
+
 .container {
 	width: 70%;
 	position: absolute;
@@ -22,28 +34,12 @@ a {
 	margin-bottom: 20px;	
 }
 
-.content-head #write_btn {
-	all: unset;
+#write_btn, 
+#update-btn, 
+#delete-btn,
+#updateProc-btn,
+#cancel-btn {
 	float: right;
-	background-color: #28A0FF;
-	padding: 5px;
-	border-radius: 5px;
-	color: white;
-}
-.content-head #write_btn:active {
-	opacity: 0.6;
-}
-
-#search-btn {
-	all: unset;
-	background-color: #28A0FF;
-	padding: 5px;
-	border-radius: 5px;
-	color: white;
-}
-
-#search-btn:active {
-	opacity: 0.6;
 }
 
 .content-head .search-part {
@@ -109,3 +105,40 @@ a {
 .article-detail {
 	margin-bottom: 10px;
 }
+
+.article-body {
+	margin-top: 30px;
+}
+
+.btn-area {
+	border-top: 1px solid #aaaaaa;
+	margin-top: 100px;
+}
+
+.btn-area button {
+	margin-top: 20px;
+}
+
+#update-btn,
+#updateProc-btn {
+	margin-right: 10px;
+}
+
+.update-title-area,
+.update-file-area {
+	margin-bottom: 30px;
+}
+
+.update-title-area input,
+.update-body-area textarea {
+	all: unset;
+	border: 1px solid #aaaaaa;
+	border-radius: 5px;
+	width: 500px;
+}
+
+.update-body-area textarea {
+	height: 300px;
+	resize: none;
+}
+
