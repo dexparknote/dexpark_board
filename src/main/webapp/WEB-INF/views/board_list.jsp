@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" tyle="text/css" href="http://localhost:9000/board/css/board.css">
 <title>게시판</title>
 </head>
 <body>
@@ -11,38 +12,34 @@
 		<div class="main">
 			<div class="content-head">
 				<h4>게시글 목록</h4>
-				<button>새 글 쓰기</button>
+				<button type="button" id="write_btn">새 글 쓰기</button>
 				<form>
-					<div>
+					<div class="search-part">
 						<input type="search" placeholder="검색어">
 						<span>
-							<button>검색</button>
+							<button type="button" id="search-btn">검색</button>
 						</span>
 					</div>
-					<div>
+					<div class="sort-part">
 						<ul>
-							<li><a href="#">최신순</a></li>
-							<li><a href="#">추천순</a></li>
-							<li><a href="#">조회순</a></li>
+							<li><a href="#" class="sort-item">최신순</a></li>
+							<li><a href="#" class="sort-item">추천순</a></li>
+							<li><a href="#" class="sort-item">조회순</a></li>
 						</ul>
 					</div>
 				</form>
 			</div>
 			<div class="content-body">
-				<table class="article-list">
-					<tr>
-						<th>번호</th>
-						<th>제목</th>
-						<th>작성일</th>
-						<th>조회수</th>
-					</tr>
-					<tr>
-						<td>1</td>
-						<td>게시판 혼자 만들어보기!</td>
-						<td>2021-03-16 pm 2:50</td>
-						<td>1</td>
-					</tr>
-				</table>
+				<ul class="article-list">
+					<li class="article-items">
+						<div class="article-num">#1</div>
+						<div class="article-title">게시판 혼자 만들어보기!</div>
+						<div class="article-detail">
+							<span class="article-date">2021-03-17</span>
+							<span class="article-views">1</span>
+						</div>
+					</li>
+				</ul>
 			</div>
 		</div>
 	</div>

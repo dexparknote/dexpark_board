@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+* {
+	padding: 0;
+	margin: 0;
+	color: #212529;
+	font-family: 'Noto Sans KR', sans-serif;
+}
+
+a {
+	text-decoration: none;
+}
+
+.container {
+	width: 70%;
+	position: absolute;
+	top: 10%;
+	left: 15%;
+}
+
+.content-head h4 {
+	font-size: 25px;
+	margin-bottom: 20px;	
+}
+
+.content-head #write_btn {
+	all: unset;
+	float: right;
+	background-color: #28A0FF;
+	padding: 5px;
+	border-radius: 5px;
+	color: white;
+}
+.content-head #write_btn:active {
+	opacity: 0.6;
+}
+
+#search-btn {
+	all: unset;
+	background-color: #28A0FF;
+	padding: 5px;
+	border-radius: 5px;
+	color: white;
+}
+
+#search-btn:active {
+	opacity: 0.6;
+}
+
+.content-head .search-part {
+	margin-bottom: 30px;	
+}
+
+.content-head form .search-part input {
+	all: unset;
+	width: 300px;
+	height: 34px;
+	border-radius: 5px;
+	border: 1px solid #aaaaaa;
+	text-indent: 5px;
+}
+
+.content-head .sort-part {
+	margin-bottom: 15px;
+}
+
+.content-head .sort-part ul{
+	list-style: none;
+}
+
+.content-head .sort-part li{
+	display: inline;
+	margin-right: 10px;
+}
+
+.content-body {
+	float: left
+}
+
+.content-body {
+	width: 70%;
+}
+
+.article-list {
+	border-top: 1px solid #aaaaaa;
+	list-style: none;
+}
+
+.article-list li {
+	border-bottom: 1px solid #aaaaaa;	
+}
+
+.article-list li:hover {
+	opacity: 0.6;
+}
+
+.article-num {
+	color: #bebebe;
+	font-size: 15px;
+}
+
+.article-title {
+	font-size: 20px;
+}
+
+.article-date, .article-views {
+	font-size: 12px;
+}
+
+.article-detail {
+	margin-bottom: 10px;
+}
