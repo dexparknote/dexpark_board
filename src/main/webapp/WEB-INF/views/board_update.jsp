@@ -25,7 +25,7 @@
 						<input type="file" name="">
 					</div>
 					<div class="update-btn-area">
-						<button type="button" id="cancel-btn">취소</button>
+						<button type="button" class="cancel-btn">취소</button>
 						<button type="button" id="updateProc-btn">수정</button>
 					</div>
 				</form>

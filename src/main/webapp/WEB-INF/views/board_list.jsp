@@ -5,7 +5,15 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="http://localhost:9000/board/css/board.css">
+<script src="http://localhost:9000/board/js/jquery-3.5.1.min.js"></script>
 <title>게시판</title>
+<script>
+	$(document).ready(function() {
+		$("#write_btn").click(function(){
+			$(location).attr("href","http://localhost:9000/board/board_write.do");
+		});
+	});
+</script>
 </head>
 <body>
 	<div class="container">

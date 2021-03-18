@@ -38,7 +38,8 @@ button:active {
 #update-btn, 
 #delete-btn,
 #updateProc-btn,
-#cancel-btn {
+.cancel-btn,
+#enroll-btn {
 	float: right;
 }
 
@@ -120,7 +121,8 @@ button:active {
 }
 
 #update-btn,
-#updateProc-btn {
+#updateProc-btn,
+#enroll-btn {
 	margin-right: 10px;
 }
 
