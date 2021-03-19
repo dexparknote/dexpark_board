@@ -1,6 +1,7 @@
 package com.dexpark.service;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
@@ -18,6 +19,39 @@ public class boardServiceImpl {
 	@Autowired
 	private boardDAO boardDAO;
 	
+	/**
+	 * 게시글 
+	 */
+	public ModelAndView getBoardContent(String bid) {
+		ModelAndView mv = new ModelAndView();
+		boardVO vo = boardDAO.getBoardContent(bid);
+		mv.addObject("bid", vo.getBid());
+		mv.addObject("btitle", vo.getBtitle());
+		mv.addObject("bcontent", vo.getBcontent());
+		mv.addObject("bsfile", vo.getBsfile());
+		mv.addObject("bdate", vo.getBdate());
+		mv.addObject("views", vo.getViews());
+		mv.setViewName("board_content");
+		return mv;
+	}
+	
+	/**
+	 * 게시글 리스트
+	 */
+	public ModelAndView getBoardList() {
+		ModelAndView mv = new ModelAndView();
+		ArrayList<boardVO> list = boardDAO.getBoardList();
+		mv.addObject("list", list);
+		mv.setViewName("board_list");
+		return mv;
+	}
+	
+	/**
+	 * 게시글 작성
+	 * @param vo
+	 * @param request
+	 * @return
+	 */
 	public ModelAndView getResultWrite(boardVO vo, HttpServletRequest request) {
 		ModelAndView mv = new ModelAndView();
 		boardVO bvo = (boardVO)vo;

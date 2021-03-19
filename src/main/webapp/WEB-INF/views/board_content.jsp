@@ -15,12 +15,16 @@
 			</div>
 			<div class="content-body">
 				<div class="article-content">
-					<h2 class="article-title">게시판 혼자 만들어보기!</h2>
-					<span class="article-date">2021-03-16</span>
-					<span class="article-views">1</span>
+					<h2 class="article-title">${ btitle }</h2>
+					<span class="article-date">${ bdate }</span>
+					<span class="article-views">${ views }</span>
 					<hr>
 					<div class="article-body">
-					<p>오랜만에 하려니 너무 어렵네요,,</p>
+						<div style="text-align: center; margin-top:50px;">
+							<img src="http://localhost:9000/board/resources/upload/ ${ bsfile }"
+							style="width: 150px; height: 150px;">
+						</div>
+						<div>${ bcontent }</div>
 					</div>
 					<div class="btn-area">
 						<button type="button" id="delete-btn">삭제</button>

@@ -18,13 +18,13 @@ public class boardController {
 	private boardServiceImpl boardService;
 	
 	@RequestMapping(value="/board_list.do", method=RequestMethod.GET)
-	public String board_list() {
-		return "board_list";
+	public ModelAndView board_list() {
+		return boardService.getBoardList();
 	}
 	
 	@RequestMapping(value="board_content.do", method=RequestMethod.GET)
-	public String board_content() {
-		return "board_content";
+	public ModelAndView board_content(String bid) {
+		return boardService.getBoardContent(bid);
 	}
 	
 	@RequestMapping(value="board_write.do", method=RequestMethod.GET)

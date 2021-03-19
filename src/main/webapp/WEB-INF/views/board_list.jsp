@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -39,14 +41,16 @@
 			</div>
 			<div class="content-body">
 				<ul class="article-list">
-					<li class="article-items">
-						<div class="article-num">#1</div>
-						<div class="article-title">게시판 혼자 만들어보기!</div>
-						<div class="article-detail">
-							<span class="article-date">2021-03-17</span>
-							<span class="article-views">1</span>
-						</div>
-					</li>
+					<c:forEach var="vo" items="${ list }">
+						<li class="article-items" onclick="location.href='http://localhost:9000/board/board_content.do?bid=${ vo.bid }'">
+							<div class="article-num">#${ vo.rno }</div>
+							<div class="article-title">${ vo.btitle }</div>
+							<div class="article-detail">
+								<span class="article-date">${ vo.bdate }</span>
+								<span class="article-views">${ vo.views }</span>
+							</div>
+						</li>
+					</c:forEach>
 				</ul>
 			</div>
 		</div>
