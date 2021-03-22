@@ -14,6 +14,23 @@
 			$(location).attr('href','http://localhost:9000/board/board_update.do?bid='+bid);
 		}
 	}
+	
+	function moveDeletePage(bid) {
+		var chk = confirm('정말로 삭제하시겠습니까?');
+		if(chk) {
+			$.ajax({
+				url: "http://localhost:9000/board/board_delete.do?bid="+bid,
+				success: function(result) {
+					if(result) {
+						alert("삭제가 완료되었습니다.");
+						$(location).attr('href','http://localhost:9000/board/board_list.do');
+					}
+				}	
+			});
+		}
+	}
+	
+	
 </script>
 </head>
 <body>
@@ -36,7 +53,7 @@
 						<div>${ bcontent }</div>
 					</div>
 					<div class="btn-area">
-						<button type="button" id="delete-btn">삭제</button>
+						<button type="button" id="delete-btn" onclick="moveDeletePage('${bid}')">삭제</button>
 						<button type="button" id="update-btn" onclick="moveUpdatePage('${bid}')">수정</button>
 					</div>
 				</div>

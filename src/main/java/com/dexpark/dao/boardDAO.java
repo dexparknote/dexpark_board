@@ -6,6 +6,23 @@ import com.dexpark.vo.boardVO;
 
 public class boardDAO extends DBConn{
 	
+	public boolean getBoardDelete(String bid) {
+		boolean result = false;
+		
+		try {
+			String sql = "delete from dexpark_board where bid=?";
+			getPreparedStatement(sql);
+			pstmt.setString(1, bid);
+			
+			int val = pstmt.executeUpdate();
+			if(val != 0) result = true;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return result;
+	}
+	
 	public boolean getUpdateProc(boardVO vo, String bid) {
 		boolean result = false;
 		

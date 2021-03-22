@@ -20,6 +20,14 @@ public class boardServiceImpl {
 	private boardDAO boardDAO;
 	
 	/**
+	 * 게시글 삭제
+	 */
+	public String getBoardDelete(String bid) {
+		boolean result = boardDAO.getBoardDelete(bid);
+		return String.valueOf(result);
+	}
+	
+	/**
 	 * 게시글 수정
 	 */
 	public ModelAndView getBoardUpdateProc(boardVO vo, String bid) {
