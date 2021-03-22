@@ -144,3 +144,9 @@ button:active {
 	resize: none;
 }
 
+.file-name {
+	background-color: white;
+	font-size: 13px;
+	margin-left: -174px;
+	padding: 0 100px 0 0;
+}

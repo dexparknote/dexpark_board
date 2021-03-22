@@ -6,6 +6,46 @@ import com.dexpark.vo.boardVO;
 
 public class boardDAO extends DBConn{
 	
+	public boolean getUpdateProc(boardVO vo, String bid) {
+		boolean result = false;
+		
+		try {
+			String sql = "update dexpark_board set btitle=?, bcontent=?, bfile=?, bsfile=? where bid=?";
+			getPreparedStatement(sql);
+			pstmt.setString(1, vo.getBtitle());
+			pstmt.setString(2, vo.getBcontent());
+			pstmt.setString(3, vo.getBfile());
+			pstmt.setString(4, vo.getBsfile());
+			pstmt.setString(5, bid);
+			
+			int val = pstmt.executeUpdate();
+			if(val != 0) result = true;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return result;
+	}
+	
+	public boolean getUpdateProcNofile(boardVO vo, String bid) {
+		boolean result = false;
+		
+		try {
+			String sql = "update dexpark_board set btitle=?, bcontent=? where bid=?";
+			getPreparedStatement(sql);
+			pstmt.setString(1, vo.getBtitle());
+			pstmt.setString(2, vo.getBcontent());
+			pstmt.setString(5, bid);
+			
+			int val = pstmt.executeUpdate();
+			if(val != 0) result = true;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return result;
+	}
+	
 	/**
 	 * °Ô½ÃÆÇ
 	 */
@@ -13,7 +53,7 @@ public class boardDAO extends DBConn{
 		boardVO vo = new boardVO();
 		
 		try {
-			String sql = "select bid, btitle, bcontent, bsfile, bdate, views from dexpark_board where bid=?";
+			String sql = "select bid, btitle, bcontent, bsfile, bdate, views, bfile from dexpark_board where bid=?";
 			getPreparedStatement(sql);
 			pstmt.setString(1, bid);
 			rs = pstmt.executeQuery();
@@ -24,6 +64,7 @@ public class boardDAO extends DBConn{
 				vo.setBsfile(rs.getString(4));
 				vo.setBdate(rs.getString(5));
 				vo.setViews(rs.getInt(6));
+				vo.setBfile(rs.getString(7));
 			}
 			
 		} catch (Exception e) {

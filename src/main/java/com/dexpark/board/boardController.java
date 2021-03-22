@@ -44,7 +44,16 @@ public class boardController {
 	}
 	
 	@RequestMapping(value="board_update.do", method=RequestMethod.GET)
-	public String board_update() {
-		return "board_update";
+	public ModelAndView board_update(String bid) {
+		return boardService.getBoardUpdate(bid);
+	}
+	
+	@RequestMapping(value="boardUpdateProc.do", method=RequestMethod.POST)
+	public ModelAndView boardUpdateProc(boardVO vo, HttpServletRequest request, String bid) {
+		String path1 = request.getSession().getServletContext().getRealPath("/");
+		String path2 = "\\resources\\upload\\";
+		vo.setSavepath(path1+path2);
+		
+		return boardService.getBoardUpdateProc(vo, bid);
 	}
 }

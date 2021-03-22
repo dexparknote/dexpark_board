@@ -5,7 +5,16 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="http://localhost:9000/board/css/board.css">
+<script src="http://localhost:9000/board/js/jquery-3.5.1.min.js"></script>
 <title>게시판</title>
+<script>
+	function moveUpdatePage(bid) {
+		var chk = confirm('수정 화면으로 넘어가시겠습니까?');
+		if(chk) {
+			$(location).attr('href','http://localhost:9000/board/board_update.do?bid='+bid);
+		}
+	}
+</script>
 </head>
 <body>
 	<div class="container">
@@ -28,7 +37,7 @@
 					</div>
 					<div class="btn-area">
 						<button type="button" id="delete-btn">삭제</button>
-						<button type="button" id="update-btn">수정</button>
+						<button type="button" id="update-btn" onclick="moveUpdatePage('${bid}')">수정</button>
 					</div>
 				</div>
 			</div>

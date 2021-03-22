@@ -20,6 +20,50 @@ public class boardServiceImpl {
 	private boardDAO boardDAO;
 	
 	/**
+	 * 게시글 수정
+	 */
+	public ModelAndView getBoardUpdateProc(boardVO vo, String bid) {
+		ModelAndView mv = new ModelAndView();
+		boolean result = false;
+		if(vo.getFile1().getSize() != 0) {
+			UUID uuid = UUID.randomUUID();
+			vo.setBfile(vo.getFile1().getOriginalFilename());
+			vo.setBsfile(uuid + "_" + vo.getFile1().getOriginalFilename());
+			
+			result = boardDAO.getUpdateProc(vo, bid);
+			if(result) {
+				try {
+					File file = new File(vo.getSavepath() + vo.getBsfile());
+					vo.getFile1().transferTo(file);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+				mv.setViewName("redirect:board_list.do");
+			}
+			else {
+				mv.setViewName("errorPage");
+			}
+		}
+		
+		return mv;
+	}
+	
+	/**
+	 * 게시글 수정 화면
+	 */
+	public ModelAndView getBoardUpdate(String bid) {
+		ModelAndView mv = new ModelAndView();
+		boardVO vo = boardDAO.getBoardContent(bid);
+		mv.addObject("bid", vo.getBid());
+		mv.addObject("btitle", vo.getBtitle());
+		mv.addObject("bcontent", vo.getBcontent());
+		mv.addObject("bsfile", vo.getBsfile());
+		mv.addObject("bfile", vo.getBfile());
+		mv.setViewName("board_update");
+		return mv;
+	}
+	
+	/**
 	 * 게시글 
 	 */
 	public ModelAndView getBoardContent(String bid) {
