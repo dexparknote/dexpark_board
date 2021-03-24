@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.board">
+	
+	<delete id="delete" parameterType="java.lang.String">
+		delete from dexpark_board where bid=#{bid}
+	</delete>
+	
+	<update id="update" parameterType="com.dexpark.vo.boardVO">
+		update dexpark_board set btitle=#{btitle}, bcontent=#{bcontent} 
+			<if test="bfile != null">
+				,bfile=#{bfile}, bsfile=#{bsfile}
+			</if>
+		where bid=#{bid}
+	</update>
+
+	<insert id="insert" parameterType="com.dexpark.vo.boardVO">
+		insert into dexpark_board values 
+		<choose>
+			<when test="bfile != null">
+				('b_'||sqe_dexpark_board.nextval,#{btitle},#{bcontent},#{bfile},#{bsfile},to_char(sysdate, 'YYYY-MM-DD AM HH12:MI'),0)
+			</when>
+			<otherwise>
+				('b_'||sqe_dexpark_board.nextval,#{btitle},#{bcontent},'','',to_char(sysdate, 'YYYY-MM-DD AM HH12:MI'),0)
+			</otherwise>
+		</choose>
+		
+	</insert>
+	
+	<select id="list" resultType="com.dexpark.vo.boardVO">
+		select rownum rno, bid, btitle, bcontent, bsfile, bdate, views from dexpark_board
+	</select>
+	
+	<select id="content" resultType="com.dexpark.vo.boardVO" parameterType="java.lang.String">
+		select bid, btitle, bcontent, bsfile, bdate, views, bfile from dexpark_board where bid=#{bid}
+	</select>
+</mapper>

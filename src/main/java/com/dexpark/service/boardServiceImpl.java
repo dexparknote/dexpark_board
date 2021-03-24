@@ -30,7 +30,7 @@ public class boardServiceImpl {
 	/**
 	 * 게시글 수정
 	 */
-	public ModelAndView getBoardUpdateProc(boardVO vo, String bid) {
+	public ModelAndView getBoardUpdateProc(boardVO vo) {
 		ModelAndView mv = new ModelAndView();
 		boolean result = false;
 		if(vo.getFile1().getSize() != 0) {
@@ -38,7 +38,7 @@ public class boardServiceImpl {
 			vo.setBfile(vo.getFile1().getOriginalFilename());
 			vo.setBsfile(uuid + "_" + vo.getFile1().getOriginalFilename());
 			
-			result = boardDAO.getUpdateProc(vo, bid);
+			result = boardDAO.getUpdateProc(vo);
 			if(result) {
 				try {
 					File file = new File(vo.getSavepath() + vo.getBsfile());
